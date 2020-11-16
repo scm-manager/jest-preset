@@ -1,0 +1,26 @@
+{
+  "name": "@scm-manager/jest-preset",
+  "version": "2.10.0-SNAPSHOT",
+  "description": "Jest presets for SCM-Manager and its plugins",
+  "main": "src/index.js",
+  "author": "SCM-Team <scm-team@cloudogu.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "babel-jest": "^24.9.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "jest": "^24.9.0",
+    "jest-junit": "^8.0.0"
+  },
+  "devDependencies": {
+    "@scm-manager/eslint-config": "^2.9.1",
+    "@scm-manager/prettier-config": "^2.9.1"
+  },
+  "eslintConfig": {
+    "extends": "@scm-manager/eslint-config"
+  },
+  "prettier": "@scm-manager/prettier-config",
+  "publishConfig": {
+    "access": "public"
+  }
+}
