@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 const babelJest = require("babel-jest");
+
 const transformer = babelJest.createTransformer({
   presets: ["@scm-manager/babel-preset"],
   plugins: ["require-context-hook"],
@@ -31,12 +32,9 @@ const transformer = babelJest.createTransformer({
 
 module.exports = {
   ...transformer,
-  process(src, filename) {
-    if (
-      !filename.includes("node_modules") ||
-      filename.includes("@scm-manager")
-    ) {
-      return transformer.process(...arguments);
+  process(src, filename, ...rest) {
+    if (!filename.includes("node_modules") || filename.includes("@scm-manager")) {
+      return transformer.process([src, filename, ...rest]);
     }
     return src;
   }

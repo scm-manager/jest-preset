@@ -22,12 +22,22 @@
  * SOFTWARE.
  */
 
-const emptyFn = {};
-
-function WorkerMock() {}
-
-WorkerMock.prototype.addEventListener = emptyFn;
-WorkerMock.prototype.removeEventListener = emptyFn;
-WorkerMock.prototype.postMessage = emptyFn;
-
-module.exports = WorkerMock;
+module.exports = {
+  env: {
+    browser: false,
+    commonjs: true,
+    es2021: true,
+    jest: true
+  },
+  extends: ["airbnb-base", "plugin:prettier/recommended"],
+  parserOptions: {
+    ecmaVersion: 12
+  },
+  rules: {
+    "no-console": "off",
+    "prettier/prettier": "warn",
+    semi: ["error", "always"],
+    quotes: ["error", "double", "avoid-escape"],
+    "no-var": "error"
+  }
+};

@@ -22,7 +22,8 @@
  * SOFTWARE.
  */
 const path = require("path");
-const isCI = require('is-ci')
+const isCI = require("is-ci");
+
 const mockDirectory = path.resolve(__dirname, "src", "__mocks__");
 const findName = require("./src/findName");
 const findTarget = require("./src/findTarget");
@@ -54,16 +55,16 @@ module.exports = {
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
   collectCoverage: isCI,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}"],
-  coverageDirectory: path.join(reportDirectory, "coverage-" + name),
+  coverageDirectory: path.join(reportDirectory, `coverage-${name}`),
   coveragePathIgnorePatterns: ["src/tests/.*", "src/testing/.*"],
   reporters: [
     "default",
     [
       "jest-junit",
       {
-        suiteName: name + " tests",
+        suiteName: `${name} tests`,
         outputDirectory: reportDirectory,
-        outputName: "TEST-" + name + ".xml"
+        outputName: `TEST-${name}.xml`
       }
     ]
   ]
