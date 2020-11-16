@@ -6,6 +6,9 @@
   "author": "SCM-Team <scm-team@cloudogu.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "check": "eslint jest-preset.js src/*"
+  },
   "dependencies": {
     "babel-jest": "^24.9.0",
     "babel-plugin-require-context-hook": "^1.0.0",
