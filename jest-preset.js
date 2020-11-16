@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 const path = require("path");
+const isCI = require('is-ci')
 const mockDirectory = path.resolve(__dirname, "src", "__mocks__");
 const findName = require("./src/findName");
 const findTarget = require("./src/findTarget");
@@ -51,7 +52,7 @@ module.exports = {
     "\\.(css|scss|sass)$": path.join(mockDirectory, "styleMock.js")
   },
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
-  collectCoverage: true,
+  collectCoverage: isCI,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}"],
   coverageDirectory: path.join(reportDirectory, "coverage-" + name),
   coveragePathIgnorePatterns: ["src/tests/.*", "src/testing/.*"],
