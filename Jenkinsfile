@@ -8,6 +8,10 @@ pipeline {
     }
   }
 
+  environment {
+    HOME = "${env.WORKSPACE}"
+  }
+
   stages {
 
     stage('Install') {
