@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * Babel transformation
+* Execution of WorkerMock methods
 
 ## 2.12.0 - 2020-12-10
 

@@ -22,7 +22,9 @@
  * SOFTWARE.
  */
 
-const emptyFn = {};
+function emptyFn() {
+  // do nothing
+}
 
 function WorkerMock() {}
 
