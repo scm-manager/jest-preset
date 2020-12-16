@@ -33,9 +33,9 @@ const transformer = babelJest.createTransformer({
 
 module.exports = {
   ...transformer,
-  process(src, filename, transformOptions) {
+  process(src, filename, transformOptions, ...rest) {
     if (!filename.includes("node_modules") || filename.includes("@scm-manager")) {
-      return transformer.process(src, filename, transformOptions);
+      return transformer.process(src, filename, transformOptions, ...rest);
     }
     return src;
   }
