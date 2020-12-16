@@ -55,8 +55,8 @@ module.exports = {
   },
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
   collectCoverage: isCI,
-  collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}"],
-  coverageDirectory: path.join(reportDirectory, `coverage-${name}`),
+  collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}", "!<rootDir>/node_modules/"],
+  coverageDirectory: path.join(reportDirectory, "coverage"),
   coveragePathIgnorePatterns: ["src/tests/.*", "src/testing/.*"],
   reporters: [
     "default",
