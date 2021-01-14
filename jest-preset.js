@@ -28,6 +28,7 @@ const isCI = require("is-ci");
 const mockDirectory = path.resolve(__dirname, "src", "__mocks__");
 const findName = require("./src/findName");
 const findTarget = require("./src/findTarget");
+const isPlugin = require("./src/isPlugin");
 
 // Set timezone for tests, this is required to get same date values
 // accross diferent machines such ci-server and dev box.
@@ -40,6 +41,7 @@ const root = process.cwd();
 const name = findName(root);
 const target = findTarget(root);
 const reportDirectory = path.join(target, "jest-reports");
+const coverageDirectory = isPlugin(name) ? "coverage" : `coverage-${name}`;
 
 module.exports = {
   rootDir: root,
@@ -56,7 +58,7 @@ module.exports = {
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
   collectCoverage: isCI,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}", "!<rootDir>/node_modules/"],
-  coverageDirectory: path.join(reportDirectory, "coverage"),
+  coverageDirectory: path.join(reportDirectory, coverageDirectory),
   coveragePathIgnorePatterns: ["src/tests/.*", "src/testing/.*"],
   reporters: [
     "default",
