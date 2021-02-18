@@ -27,5 +27,8 @@
 import registerRequireContextHook from "babel-plugin-require-context-hook/register";
 import Worker from "./__mocks__/workerMock";
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 registerRequireContextHook();
 window.Worker = Worker;
