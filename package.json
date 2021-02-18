@@ -1,6 +1,6 @@
 {
   "name": "@scm-manager/jest-preset",
-  "version": "2.12.6",
+  "version": "2.12.7",
   "description": "Jest presets for SCM-Manager and its plugins",
   "main": "src/index.js",
   "author": "SCM-Team <scm-team@cloudogu.com>",
