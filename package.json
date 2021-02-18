@@ -10,7 +10,6 @@
     "check": "eslint jest-preset.js src/*"
   },
   "dependencies": {
-    "@scm-manager/babel-preset": "^2.11.2",
     "babel-jest": "^26.6.3",
     "babel-plugin-require-context-hook": "^1.0.0",
     "is-ci": "^2.0.0",
