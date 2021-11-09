@@ -26,7 +26,7 @@ const babelJest = require("babel-jest");
 
 const transformer = babelJest.createTransformer({
   presets: ["@scm-manager/babel-preset"],
-  plugins: ["require-context-hook"],
+  plugins: ["require-context-hook", "babel-plugin-transform-import-meta"],
   babelrc: false,
   configFile: false
 });
