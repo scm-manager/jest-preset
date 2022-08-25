@@ -24,5 +24,5 @@
 
 module.exports = {
   SyntaxHighlighter: () => null,
-  useSyntaxHighlightingWorker: () => new Worker("foo.bar", undefined)
+  useSyntaxHighlightingWorker: () => ({})
 };
