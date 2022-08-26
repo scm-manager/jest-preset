@@ -70,7 +70,8 @@ module.exports = {
       {
         suiteName: `${name} tests`,
         outputDirectory: reportDirectory,
-        outputName: `TEST-${name}.xml`
+        outputName: `TEST-${name}.xml`,
+        reportTestSuiteErrors: true
       }
     ]
   ]

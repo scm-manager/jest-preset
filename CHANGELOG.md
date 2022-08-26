@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * Add mocks for private modules
+* Report build errors
 
 ## 2.13.0 - 2021-11-09
 
