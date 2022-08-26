@@ -55,7 +55,8 @@ module.exports = {
     "\\.(png|svg|jpg|gif|woff2?|eot|ttf)$": path.join(mockDirectory, "fileMock.js"),
     "\\.(css|scss|sass)$": path.join(mockDirectory, "styleMock.js"),
     "@scm-manager/ui-text": path.join(mockDirectory, "ui-text.js"),
-    "@scm-manager/ui-syntaxhighlighting": path.join(mockDirectory, "ui-syntaxhighlighting.js")
+    "@scm-manager/ui-syntaxhighlighting": path.join(mockDirectory, "ui-syntaxhighlighting.js"),
+    "@scm-manager/ui-styles": path.join(mockDirectory, "ui-styles.js")
   },
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
   collectCoverage: isCI,
