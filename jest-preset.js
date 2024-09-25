@@ -43,6 +43,19 @@ const target = findTarget(root);
 const reportDirectory = path.join(target, "jest-reports");
 const coverageDirectory = isPlugin(name) ? "coverage" : `coverage-${name}`;
 
+const moduleNameMapper = {
+  "\\.(png|svg|jpg|gif|woff2?|eot|ttf)$": path.join(mockDirectory, "fileMock.js"),
+  "\\.(css|scss|sass)$": path.join(mockDirectory, "styleMock.js"),
+  "@scm-manager/ui-styles": path.join(mockDirectory, "ui-styles.js")
+};
+
+// some of the snapshot tests are using the ui-text and ui-syntaxhighlighting components
+// so we enable the mocks only for plugins
+if (isPlugin(name)) {
+  moduleNameMapper["@scm-manager/ui-text"] = path.join(mockDirectory, "ui-text.js");
+  moduleNameMapper["@scm-manager/ui-syntaxhighlighting"] = path.join(mockDirectory, "ui-syntaxhighlighting.js");
+}
+
 module.exports = {
   rootDir: root,
   roots: [root],
@@ -51,13 +64,7 @@ module.exports = {
     "^.+\\.(ts|tsx|js)$": "@scm-manager/jest-preset"
   },
   transformIgnorePatterns: ["node_modules/(?!(@scm-manager)/)"],
-  moduleNameMapper: {
-    "\\.(png|svg|jpg|gif|woff2?|eot|ttf)$": path.join(mockDirectory, "fileMock.js"),
-    "\\.(css|scss|sass)$": path.join(mockDirectory, "styleMock.js"),
-    "@scm-manager/ui-text": path.join(mockDirectory, "ui-text.js"),
-    "@scm-manager/ui-syntaxhighlighting": path.join(mockDirectory, "ui-syntaxhighlighting.js"),
-    "@scm-manager/ui-styles": path.join(mockDirectory, "ui-styles.js")
-  },
+  moduleNameMapper,
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
   collectCoverage: isCI,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}", "!<rootDir>/node_modules/"],
