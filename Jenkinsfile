@@ -55,7 +55,7 @@ pipeline {
         branch pattern: 'release/*', comparator: 'GLOB'
       }
       steps {
-        withYarnAuth('cesmarvin_npm_token') {
+        withYarnAuth('npm-token-scm-manager') {
           sh "yarn publish --new-version ${releaseVersion}"
         }
       }
@@ -71,9 +71,9 @@ pipeline {
         sh 'git merge main'
 
         // push changes back to remote repository
-        authGit 'cesmarvin-github', 'push origin main --tags'
-        authGit 'cesmarvin-github', 'push origin develop --tags'
-        authGit 'cesmarvin-github', "push origin :${env.BRANCH_NAME}"
+        authGit 'SCM-Manager', 'push origin main --tags'
+        authGit 'SCM-Manager', 'push origin develop --tags'
+        authGit 'SCM-Manager', "push origin :${env.BRANCH_NAME}"
       }
     }
 
