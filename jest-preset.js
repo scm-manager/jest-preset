@@ -54,6 +54,7 @@ const moduleNameMapper = {
 if (isPlugin(name)) {
   moduleNameMapper["@scm-manager/ui-text"] = path.join(mockDirectory, "ui-text.js");
   moduleNameMapper["@scm-manager/ui-syntaxhighlighting"] = path.join(mockDirectory, "ui-syntaxhighlighting.js");
+  moduleNameMapper["@scm-manager/ui-shortcuts"] = path.join(mockDirectory, "ui-shortcuts.js");
 }
 
 module.exports = {
