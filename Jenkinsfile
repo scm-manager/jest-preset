@@ -79,6 +79,19 @@ pipeline {
         authGit 'SCM-Manager', "push origin :${env.BRANCH_NAME}"
       }
     }
+    
+    stage('Update GitHub') {
+      when {
+        branch pattern: 'release/*', comparator: 'GLOB'
+	    expression { return isBuildSuccess() }
+      }
+      steps {
+        sh 'git checkout main'
+        
+        // push changes to GitHub
+        authGit 'cesmarvin', "push -f https://github.com/scm-manager/babel-preset main --tags"
+      }
+    }
 
   }
 
@@ -116,4 +129,9 @@ void authGit(String credentials, String command) {
   ]) {
     sh "git -c credential.helper=\"!f() { echo username='\$AUTH_USR'; echo password='\$AUTH_PSW'; }; f\" ${command}"
   }
+}
+
+
+boolean isBuildSuccess() {
+  return currentBuild.result == null || currentBuild.result == 'SUCCESS'
 }
