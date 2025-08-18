@@ -59,6 +59,7 @@ module.exports = {
   transformIgnorePatterns: ["node_modules/(?!(@scm-manager)/)"],
   moduleNameMapper,
   setupFiles: [path.resolve(__dirname, "src", "setup.js")],
+  setupFilesAfterEnv: [path.resolve(__dirname, "src", "setupTests.js")],
   collectCoverage: isCI,
   collectCoverageFrom: ["src/**/*.{ts,tsx,js,jsx}", "!<rootDir>/node_modules/"],
   coverageDirectory: path.join(reportDirectory, coverageDirectory),
